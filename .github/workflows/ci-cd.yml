@@ -1,4 +1,4 @@
-name: Fibonacci API CI/CD Pipeline
+name: Fibonacci API Build and Push
 
 on:
   push:

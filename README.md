@@ -12,6 +12,7 @@ A simple REST API that calculates and returns the nth number in the Fibonacci se
 - Returns the nth Fibonacci number where F(0) = 0, F(1) = 1, and F(n) = F(n-1) + F(n-2) for n > 1
 - Provides error handling for invalid inputs
 - Includes a health check endpoint
+- Implements rate limiting to prevent abuse
 
 ## API Endpoints
 
@@ -24,6 +25,7 @@ GET /fibonacci?n=<number>
 #### Parameters
 
 - `n` (required): A non-negative integer representing the position in the Fibonacci sequence.
+  - Must be less than or equal to 1000 to prevent excessive computation.
 
 #### Example Responses
 
@@ -43,13 +45,22 @@ GET /fibonacci?n=10
 }
 ```
 
+#### Rate Limiting
+
+This endpoint is rate-limited to:
+- 30 requests per minute per IP address
+- 50 requests per hour per IP address (global limit)
+- 200 requests per day per IP address (global limit)
+
+If the rate limit is exceeded, the API will return a 429 status code with an error message.
+
 ### Health Check
 
 ```
 GET /health
 ```
 
-Returns the status of the API.
+Returns the status of the API. This endpoint is exempt from rate limiting.
 
 ```json
 {
@@ -149,9 +160,13 @@ To handle high traffic, consider the following approaches:
    - Implement Redis or Memcached to store computed Fibonacci numbers
    - Add TTL for cache entries to balance memory usage and performance
 
-3. **Optimization**
+3. **Rate Limiting**
+   - The API implements rate limiting to prevent abuse
+   - In production, consider using Redis as the rate limiting storage backend for persistence across container restarts
+
+4. **Optimization**
    - For very large values of n, consider implementing a more efficient algorithm
-   - Add rate limiting to prevent abuse
+   - The API limits n to 1000 to prevent excessive computation
 
 ### Monitoring and Logging
 
@@ -168,7 +183,7 @@ To handle high traffic, consider the following approaches:
 
 ### Security Considerations
 
-1. Set up proper rate limiting
-2. Implement input validation to prevent attacks
+1. Rate limiting is implemented to prevent abuse
+2. Input validation prevents excessive computation
 3. Use HTTPS in production
-4. Consider adding authentication for API usage tracking 
+4. Consider adding authentication for API usage tracking
