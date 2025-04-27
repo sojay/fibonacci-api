@@ -118,7 +118,7 @@ docker build -t fibonacci-api .
 ### Run the container
 
 ```bash
-docker run -p 5000:5000 fibonacci-api
+docker run -d -p 5000:5000 fibonacci-api
 ```
 
 The API will be available at http://localhost:5000
