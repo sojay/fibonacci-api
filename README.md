@@ -79,7 +79,7 @@ Returns the status of the API. This endpoint is exempt from rate limiting.
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/yourusername/fibonacci-app.git
+   git clone https://github.com/sojay/fibonacci-app.git
    cd fibonacci-app
    ```
 
