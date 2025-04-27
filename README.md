@@ -138,7 +138,22 @@ All infrastructure is defined using declarative configuration, enabling:
 
 ### Multi-Environment Deployment Pipeline
 
-![Deployment Architecture](https://mermaid.ink/img/pako:eNp1ksFuwjAMhl_F8qnTJvECO1RoYtI4bBMnhENITGNIs5CkaCDEu8-hHWyl7ZT4_z_bsZ0r3ViJPNJCgB2M5_4HV29GZ7HK8jRmI2lbB44PwipQFj6BZ8fZ9Gl6TU2tCXZKdO-D4BxXQjmDwXE4pB9JvM0XWbLOk80qjpM8SzfpakmwVLt990a1wf3RKk9g5b7AUYcO_hR0-FqwZNwS3kBa_Bn7YLAp6OPYx3HYZbK_C37p0ZIaVB12X5bWC8m_KltM9JkwfQ1mrS0PVTFhvX9Gx7GIm6DWe-fBU9TS91Tn9Jq9sJ5T_aIcjqCx-0CpJPYoGvTVZv-VXWQNovrXTrRUmmOkrLdkdQsVGY2RzpVQTN-cDWw8m-fQe8pF1MAjrWlkxRudnHOu6YxMJ1r-WvblvnTeukoe6S2Vm1Y6w6xTfwGFYLaD?type=png)
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   Development   │────►│     Staging     │────►│   Production    │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+        │                       │                       │
+        ▼                       ▼                       ▼
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  Local Testing  │     │   Integration   │     │     Canary      │
+│  Docker Compose │     │     Testing     │     │   Deployment    │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+                                                        │
+┌─────────────────┐     ┌─────────────────┐            ▼
+│    CI Checks    │────►│  Artifact Build │     ┌─────────────────┐
+│  Tests & Lint   │     │  Docker Images  │────►│  Full Rollout   │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+```
 
 1. **Development**:
    - Developers work locally with Docker Compose
