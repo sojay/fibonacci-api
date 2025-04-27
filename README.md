@@ -196,13 +196,13 @@ The application follows cloud-native principles with:
 livenessProbe:
   httpGet:
     path: /health
-    port: 5001
+    port: 5000
   initialDelaySeconds: 10
   periodSeconds: 30
 readinessProbe:
   httpGet:
     path: /health
-    port: 5001
+    port: 5000
   initialDelaySeconds: 5
   periodSeconds: 10
 ```
