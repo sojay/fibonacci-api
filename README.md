@@ -2,6 +2,11 @@
 
 A simple REST API that calculates and returns the nth number in the Fibonacci sequence.
 
+## Features:
+- ✅ Error handling for invalid inputs
+- 🚀 Optimized for speed (no recursion)
+- 📦 Simple integration with RESTful endpoints
+
 ## Functionality
 
 - Returns the nth Fibonacci number where F(0) = 0, F(1) = 1, and F(n) = F(n-1) + F(n-2) for n > 1
