@@ -149,7 +149,7 @@ All infrastructure is defined using declarative configuration, enabling:
 │  Docker Compose │     │     Testing     │     │   Deployment    │
 └─────────────────┘     └─────────────────┘     └─────────────────┘
                                                         │
-┌─────────────────┐     ┌─────────────────┐            ▼
+┌─────────────────┐     ┌─────────────────┐             ▼
 │    CI Checks    │────►│  Artifact Build │     ┌─────────────────┐
 │  Tests & Lint   │     │  Docker Images  │────►│  Full Rollout   │
 └─────────────────┘     └─────────────────┘     └─────────────────┘
