@@ -35,7 +35,7 @@ def jsonify(data, status=200):
     )
 
 @app.route('/fibonacci', methods=['GET'])
-@limiter.limit("30 per minute")  # Specific limit for this endpoint
+@limiter.limit("30 per minute")  # Specific rate limit for this endpoint
 def get_fibonacci():
     try:
         n = request.args.get('n')

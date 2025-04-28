@@ -1,3 +1,6 @@
+![Fibonacci Sequence Image](https://media.wired.com/photos/636564bf1d1ddb0aa029e11a/3:2/w_2240,c_limit/QUANTA_Infinite-Staircases_2880x1620_Lede-scaled%20(1).jpg)
+
+
 # Fibonacci Sequence API
 
 A simple REST API that calculates and returns the nth number in the Fibonacci sequence.
@@ -122,6 +125,7 @@ docker run -d -p 5000:5000 fibonacci-api
 ```
 
 The API will be available at http://localhost:5000
+
 
 ## Production Deployment Architecture
 
