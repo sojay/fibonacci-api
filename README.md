@@ -82,8 +82,8 @@ Returns the status of the API. This endpoint is exempt from rate limiting.
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/sojay/fibonacci-app.git
-   cd fibonacci-app
+   git clone https://github.com/sojay/fibonacci-api.git
+   cd fibonacci-api
    ```
 
 2. Create a virtual environment
